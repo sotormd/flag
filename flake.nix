@@ -20,7 +20,7 @@
             pattern = {
               image = {
                 id = "flag";
-                version = "0.0.2";
+                version = "0.0.3";
                 updates = {
                   url = "http://localhost";
                   pubring = ./flag-pubring.pgp;
@@ -80,6 +80,12 @@
             services.qemuGuest.enable = true;
 
             environment.systemPackages = [ pkgs.microfetch ];
+
+            fonts.enableDefaultPackages = true;
+            fonts.packages = [
+              pkgs.nerd-fonts.jetbrains-mono
+              pkgs.noto-fonts
+            ];
 
             # this should be changed after setup
             users.users.root.initialPassword = "flag";
