@@ -20,7 +20,7 @@
             pattern = {
               image = {
                 id = "flag";
-                version = "0.0.1";
+                version = "0.0.2";
                 updates = {
                   url = "http://localhost";
                   pubring = ./flag-pubring.pgp;
@@ -78,6 +78,8 @@
             services.spice-vdagentd.enable = true;
             services.spice-autorandr.enable = true;
             services.qemuGuest.enable = true;
+
+            environment.systemPackages = [ pkgs.microfetch ];
 
             # this should be changed after setup
             users.users.root.initialPassword = "flag";
