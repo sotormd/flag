@@ -20,7 +20,7 @@
             pattern = {
               image = {
                 id = "flag";
-                version = "0.0.3";
+                version = "0.0.4";
                 updates = {
                   url = "http://localhost";
                   pubring = ./flag-pubring.pgp;
@@ -73,6 +73,38 @@
                 enableWaylandSession = true;
               };
               displayManager.lightdm.enable = true;
+            };
+
+            # configuring out MATE desktop
+            # isnt it cool that it uses dconf
+            systemd.user.services.mate-dconf = {
+              enable = true;
+              description = "Apply MATE dconf settings at login";
+              after = [ "graphical.target" ];
+              wantedBy = [ "default.target" ];
+              path = [ pkgs.dconf ];
+              script = ''
+                dconf write /org/mate/terminal/profiles/default/use-theme-colors false
+
+                dconf write /org/mate/terminal/profiles/default/background-color "'#000000000000'"
+                dconf write /org/mate/terminal/profiles/default/foreground-color "'#FFFFFFFFFFFF'"
+
+                dconf write /org/mate/terminal/profiles/default/scrollbar-position "'hidden'"
+
+                dconf write /org/mate/marco/general/theme "'BlueMenta'"
+
+                dconf write /org/mate/desktop/interface/gtk-theme "'BlueMenta'"
+                dconf write /org/mate/desktop/interface/icon-theme "'mate'"
+                dconf write /org/mate/desktop/peripherals/mouse/cursor-theme "'mate-black'"
+
+                dconf write /org/mate/desktop/background/color-shading-type "'solid'"
+                dconf write /org/mate/desktop/background/picture-options "'wallpaper'"
+                dconf write /org/mate/desktop/background/primary-color "'rgb(88,145,188)'"
+                dconf write /org/mate/desktop/background/secondary-color "'rgb(60,143,37)'"
+
+                dconf write /org/mate/panel/toplevels/bottom/y 1055
+              '';
+              serviceConfig.Type = "oneshot";
             };
 
             services.spice-vdagentd.enable = true;
