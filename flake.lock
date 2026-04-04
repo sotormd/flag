@@ -1,5 +1,20 @@
 {
   "nodes": {
+    "mate": {
+      "locked": {
+        "lastModified": 1775328694,
+        "narHash": "sha256-Hr1U+QwCUCwVVbwi69MHy6GsYb7PCQ6VYzY/hpS2u0k=",
+        "owner": "sotormd",
+        "repo": "nixos-mate",
+        "rev": "14bb14fa7bada139098dacacfc6318a78d05fc44",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sotormd",
+        "repo": "nixos-mate",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1774386573,
@@ -52,6 +67,7 @@
     },
     "root": {
       "inputs": {
+        "mate": "mate",
         "nixpkgs": "nixpkgs",
         "pattern": "pattern"
       }
