@@ -1,5 +1,20 @@
 {
   "nodes": {
+    "nate": {
+      "locked": {
+        "lastModified": 1775622121,
+        "narHash": "sha256-0o8ipRLg2n0am/SoKa7Wvzilpvg4yOai8eNJXlHIfJg=",
+        "owner": "sotormd",
+        "repo": "nate",
+        "rev": "2ce723cd9e7c422d95b6f35f25313d49471b1fea",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sotormd",
+        "repo": "nate",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1774386573,
@@ -52,6 +67,7 @@
     },
     "root": {
       "inputs": {
+        "nate": "nate",
         "nixpkgs": "nixpkgs",
         "pattern": "pattern"
       }
