@@ -22,8 +22,9 @@
             pattern = {
               image = {
                 id = "flag";
-                version = "0.0.5";
+                version = "0.0.6";
                 updates = {
+                  enable = true;
                   url = "http://localhost";
                   pubring = ./flag-pubring.pgp;
                 };
@@ -73,6 +74,9 @@
 
             # this should be changed after setup
             users.users.root.initialPassword = "flag";
+
+            # stateVersion
+            system.stateVersion = "24.05";
           }
         )
       ];
